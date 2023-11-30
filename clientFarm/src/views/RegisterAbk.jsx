@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
 import { register } from "../store/actions/actionCreator"; 
-import "../css/register.css"; 
+
 
 export default function Register() {
   const navigate = useNavigate();

@@ -2,8 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Navbar, Nav, Image } from "react-bootstrap";
 import Swal from "sweetalert2";
-import { FaSignOutAlt } from "react-icons/fa"; // Import the log out icon
-
+import { FaSignOutAlt } from "react-icons/fa"; 
 export default function NavBar() {
   const navigate = useNavigate();
 
@@ -21,7 +20,7 @@ export default function NavBar() {
   }
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar bg="dark" variant="dark" expand="lg" className="navbar-padding">
       <Navbar.Brand>
         <Link to="/">
           <Image
@@ -34,8 +33,14 @@ export default function NavBar() {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto"> 
-          <Nav.Link as={Link} to="/">
-            Dashboard
+        <Nav.Link as={Link} to="/">
+            Home
+          </Nav.Link>
+          <Nav.Link as={Link} to="/register-admin">
+            Admin Register
+          </Nav.Link>
+          <Nav.Link>
+            Controller
           </Nav.Link>
           <Nav.Link href="/" onClick={handleLogout}>
             <FaSignOutAlt /> Sign out 

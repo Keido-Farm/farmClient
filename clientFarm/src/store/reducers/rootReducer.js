@@ -1,9 +1,9 @@
 import {combineReducers} from "redux";
-import itemReducer from './itemsReducer'
-import categoryReducer from './categoriesReducer'
+import farmReducer from './farmsReducer'
+import periodReducer from './periodReducer'
 const rootReducer = combineReducers({
-  items: itemReducer,
-  categories: categoryReducer
+  farms: farmReducer,
+  periodData: periodReducer
 })
 
 

@@ -1,5 +1,6 @@
-export const ITEMS_FETCH_SUCCESS = "items/fetchSuccess"
-export const ITEMS_FETCH_REQUEST = 'items/fetchRequest'
-export const ITEMS_FETCH_FAILED = 'Items/fetchFailed'
-export const ITEMSBYID_FETCH_SUCCESS = "items/fetchById"
-export const CATEGORY_FETCH_SUCCESS = "categories/fetchSuccess"
+export const FARMS_FETCH_SUCCESS = "farms/fetchSuccess"
+export const FARMS_FETCH_REQUEST = 'farms/fetchRequest'
+export const FARMS_FETCH_FAILED = 'farms/fetchFailed'
+export const PERIODS_FETCH_REQUEST = "periods/fetchRequest"
+export const PERIODS_FETCH_SUCCESS = "periods/fetchSuccess"
+export const PERIODS_FETCH_FAILED = "periods/fetchFailed"
