@@ -1,32 +1,31 @@
 import {
-  PERIODS_FETCH_REQUEST,
-  PERIODS_FETCH_SUCCESS,
-  PERIODS_FETCH_FAILED,
+  WEEKLY_FETCH_REQUEST,
+  WEEKLY_FETCH_SUCCESS,
+  WEEKLY_FETCH_FAILED,
 } from "../actions/actionType";
 
 const initialState = {
-  farmDetails:{},
-  periods:[],
+  periodDetails:{},
+  weeks:[],
   error:'',
-  loading: false,
-  
+  loading: false
 };
 
 export default function rootReducer(state = initialState, action) {
   switch (action.type) {
-    case PERIODS_FETCH_REQUEST:
+    case WEEKLY_FETCH_REQUEST:
       return {
         ...state,
         loading: true,
       };
-    case PERIODS_FETCH_SUCCESS:
+    case WEEKLY_FETCH_SUCCESS:
       return {
         ...state,
-        farmDetails:action.details,
-        periods: action.periods,
+        periodDetails:action.details,
+        weeks: action.weeks,
         loading:false
       };
-    case PERIODS_FETCH_FAILED:
+    case WEEKLY_FETCH_FAILED:
       return {
         ...state,
         error: action.error,

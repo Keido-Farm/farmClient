@@ -16,7 +16,20 @@ export default function PeriodTable({ period, periodNumber }) {
   const navigate = useNavigate();
   const formattedStartDate = formatDate(period.startDate);
   const formattedEndDate = formatDate(period.endDate);
-
+  const onWeeklyClick = async (e) => {
+    try {
+      e.preventDefault();
+      navigate(`/weekly-list/${period.id}`)
+    } catch (err) {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: `${err}`,
+        showConfirmButton: true,
+        timer: 1500
+      });
+    }
+  } 
   return (
     <>
       <tr>
@@ -27,7 +40,7 @@ export default function PeriodTable({ period, periodNumber }) {
         <td>{period.status}</td>
         <td>
           <div>
-            <Button variant="success">Weekly</Button>
+            <Button variant="success" onClick={onWeeklyClick}>Weekly</Button>
             <Button variant="warning" style={{marginLeft: 10}}>Edit</Button>
             <Button variant="danger" style={{marginLeft: 10}}>End</Button>
           </div>

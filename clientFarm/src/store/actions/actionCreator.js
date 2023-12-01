@@ -5,7 +5,10 @@ import {
   FARMS_FETCH_SUCCESS,
   PERIODS_FETCH_FAILED,
   PERIODS_FETCH_REQUEST,
-  PERIODS_FETCH_SUCCESS
+  PERIODS_FETCH_SUCCESS,
+  WEEKLY_FETCH_FAILED,
+  WEEKLY_FETCH_REQUEST,
+  WEEKLY_FETCH_SUCCESS
 } from "./actionType";
 
 const baseUrl = "http://localhost:3000";
@@ -47,6 +50,27 @@ export const periodFetchSuccess = (details,periods) => {
 export const periodFetchFailed = (error) => {
   return {
     type: PERIODS_FETCH_FAILED,
+    payload: error,
+  };
+};
+
+export const weekFetchRequest = () => {
+  return {
+    type: WEEKLY_FETCH_REQUEST,
+  };
+};
+
+export const weekFetchSuccess = (details,weeks) => {
+  return {
+    type: WEEKLY_FETCH_SUCCESS,
+    details: details,
+    weeks: weeks
+  }
+}
+
+export const weekFetchFailed = (error) => {
+  return {
+    type: WEEKLY_FETCH_FAILED,
     payload: error,
   };
 };
@@ -133,6 +157,27 @@ export const getFarmDetailsAndPeriods = (id) => {
       }
     } catch (err) {
       dispatch(periodFetchFailed(err.response.data.message));
+    }
+  };
+};
+
+export const getPeriodDetailsAndWeekly = (id) => {
+  return async (dispatch) => {
+    try {
+      dispatch(weekFetchRequest());
+      const accessToken = localStorage.getItem("access_token");
+      const config = {
+        headers: {
+          access_token: accessToken,
+        },
+      };
+
+      const response = await axios.get(`${baseUrl}/periods/${id}`, config);
+      if (response) {
+        dispatch(weekFetchSuccess(response.data.details,response.data.weeklyReports));
+      }
+    } catch (err) {
+      dispatch(weekFetchFailed(err.response.data.message));
     }
   };
 };

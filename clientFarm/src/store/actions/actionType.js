@@ -4,3 +4,6 @@ export const FARMS_FETCH_FAILED = 'farms/fetchFailed'
 export const PERIODS_FETCH_REQUEST = "periods/fetchRequest"
 export const PERIODS_FETCH_SUCCESS = "periods/fetchSuccess"
 export const PERIODS_FETCH_FAILED = "periods/fetchFailed"
+export const WEEKLY_FETCH_REQUEST = "weekly/fetchRequest"
+export const WEEKLY_FETCH_SUCCESS = "weekly/fetchSuccess"
+export const WEEKLY_FETCH_FAILED = "weekly/fetchFailed"
